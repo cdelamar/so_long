@@ -6,7 +6,7 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 07:36:44 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/11 22:35:13 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:34:01 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	player_controls(int keysym, t_img *img)
 {
 	if (keysym == KEY_ESCAPE)
 	{
-		ft_freetab(img->map);
+		free_img_map(img);
 		on_destroy(img);
 	}
 	if (keysym == ARROW_UP)
@@ -34,7 +34,6 @@ void	player_move(t_img *img, int y, int x)
 {
 	img->prev_x = img->player_x;
 	img->prev_y = img->player_y;
-
 	if (img->map[y][x] == '0')
 	{
 		ft_move(img, x, y);
@@ -61,10 +60,12 @@ void	ft_move(t_img *img, int x, int y)
 	img->player_y = y;
 	img->map[y][x] = 'P';
 	img->map[img->prev_y][img->prev_x] = '0';
-	mlx_put_image_to_window(img->mlx, img->win, img->f_xpm, img->prev_x * 60, img->prev_y * 60);
+	mlx_put_image_to_window(img->mlx, img->win,
+		img->f_xpm, img->prev_x * 60, img->prev_y * 60);
 	img->step++;
 	ft_printf("step : %d\n", img->step);
 }
+
 void	set_img(t_img *i)
 {
 	i->h = 60;
@@ -80,4 +81,3 @@ void	set_img(t_img *i)
 	i->c_xpm = mlx_xpm_file_to_image(i->mlx, i->c_addr, &(i->h), &(i->w));
 	i->e_xpm = mlx_xpm_file_to_image(i->mlx, i->e_addr, &(i->h), &(i->w));
 }
-

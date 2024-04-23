@@ -6,7 +6,7 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 07:43:10 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/11 07:53:29 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:33:44 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,3 @@ bool	closed_map(t_img *img)
 	else
 		return (false);
 }
-

@@ -1,12 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   output.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/22 23:04:08 by cdelamar          #+#    #+#             */
+/*   Updated: 2024/04/22 23:08:53 by cdelamar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
-void	print_map (t_img *img)
+void	print_map(t_img *img)
 {
-	int j = 0;
+	int	j;
 
-	while(j < img->y && img->map[j])
+	j = 0;
+	while (j < img->y && img->map[j])
 	{
-		printf("line %d : %s\n",j ,img->map[j]);
+		ft_printf("line %d : %s\n", j, img->map[j]);
 		j++;
 	}
 }

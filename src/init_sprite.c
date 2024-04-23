@@ -6,7 +6,7 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 08:18:55 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/11 21:08:45 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:10:59 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,3 @@ int	set_sprite(t_img *img)
 	set_object(img);
 	return (0);
 }
-

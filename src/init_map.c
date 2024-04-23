@@ -6,32 +6,16 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 06:46:31 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/11 22:25:47 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:36:42 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**map_alloc(int y, int x)
-{
-	int		i;
-	char	**output;
-
-	i = 0;
-	output = (char **)malloc(sizeof(char *) * y);
-	if (output == NULL)
-		return (NULL);
-	while (i < y)
-	{
-		output[i] = (char *)malloc(sizeof(char) * x);
-		i++;
-	}
-	return (output);
-}
-
 void	set_map(t_img *img)
 {
-	char *line;
+	char	*line;
+
 	line = get_next_line(img->fd);
 	if (!line)
 		error_message(MAP_IS_EMPTY);
@@ -43,37 +27,38 @@ void	set_map(t_img *img)
 		img->y++;
 	}
 	free(line);
-	img->map = (char **)malloc(sizeof(char*) * (img->y - 1));
+	img->map = (char **)malloc(sizeof(char *) * (img->y - 1));
 }
 
-void init_map(t_img *img)
+void	init_map(t_img *img)
 {
-    int y = 0;
-    char *line;
+	int		y;
+	char	*line;
 
-    line = get_next_line(img->fd2);
-    if (!line)
-        error_message(MAP_IS_EMPTY);
-    img->x = ft_strlen(line);
+	y = 0;
+	line = get_next_line(img->fd2);
+	if (!line)
+		error_message(MAP_IS_EMPTY);
+	img->x = ft_strlen(line);
 	if (img->map == NULL)
-		return;
+		return ;
 	img->map[y] = ft_strdup(line);
-    if (img->x > 0 && line[img->x - 1] == '\n')
+	if (img->x > 0 && line[img->x - 1] == '\n')
 		img->map[y][img->x - 1] = '\0';
 	free(line);
-    while (y < img-> y)
-    {
-        line = get_next_line(img->fd2);
-        if (!line)
-            break;
-        if (line[img->x - 1] == '\n')
+	while (y < img-> y)
+	{
+		line = get_next_line(img->fd2);
+		if (!line)
+			break ;
+		if ((int)ft_strlen(line) >= img->x && line[img->x - 1] == '\n')
 			line[img->x - 1] = '\0';
-        y++;
-        img->map[y] = ft_strdup(line);
-        free(line);
-    }
-	free(line);
+		y++;
+		img->map[y] = ft_strdup(line);
+		free(line);
+	}
 }
+
 void	adjust_last_character(t_img *img)
 {
 	int	i;

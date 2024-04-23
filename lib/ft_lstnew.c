@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/23 00:15:43 by cdelamar          #+#    #+#             */
+/*   Updated: 2024/04/23 00:15:48 by cdelamar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,6 +25,7 @@ t_list	*ft_lstnew(void *content)
 	new_node->next = NULL;
 	return (new_node);
 }
+
 /*
 int	main(void)
 {

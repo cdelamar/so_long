@@ -6,11 +6,28 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 06:46:37 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/11 23:17:42 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:02:53 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+char	**map_alloc(int y, int x)
+{
+	int		i;
+	char	**output;
+
+	i = 0;
+	output = (char **)malloc(sizeof(char *) * y);
+	if (output == NULL)
+		return (NULL);
+	while (i < y)
+	{
+		output[i] = (char *)malloc(sizeof(char) * x);
+		i++;
+	}
+	return (output);
+}
 
 int	on_destroy(t_img *data)
 {
@@ -27,10 +44,10 @@ int	on_destroy(t_img *data)
 	return (0);
 }
 
-
-int	test(void) // int keysym ?
+int	force_quit(t_img *img)
 {
-	//sleep();
+	free_img_map(img);
+	on_destroy(img);
 	return (0);
 }
 
@@ -39,10 +56,11 @@ void	ft_mlx(t_img *img)
 	mlx_hook(img->win, KeyPress, KeyPressMask, &player_controls, img);
 	mlx_hook(img->win, DestroyNotify, StructureNotifyMask, &on_destroy, img);
 	mlx_hook(img->win, Expose, ExposureMask, &set_sprite, img);
+	mlx_hook(img->win, 17, StructureNotifyMask, &force_quit, img);
 	mlx_loop(img->mlx);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_img	img;
 
@@ -50,10 +68,9 @@ int main(int argc, char **argv)
 	img.y = 1;
 	img.map = NULL;
 	img.f_map = NULL;
-	img.fd = open(argv[1], O_RDONLY);
-	if (valid_args(argc, argv, &img) == true)
+	if (valid_args(argc, argv) == true)
 	{
-
+		img.fd = open(argv[1], O_RDONLY);
 		set_map(&img);
 		close(img.fd);
 		img.fd2 = open(argv[1], O_RDONLY);

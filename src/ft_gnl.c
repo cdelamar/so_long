@@ -6,7 +6,7 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 08:03:25 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/11 08:03:27 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:20:51 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	ft_strcpy(ss2, s2);
 	ft_strcpy(str, ss1);
 	st_strcat(str, ss2);
-
 	free(ss1);
 	free(ss2);
 	return (str);

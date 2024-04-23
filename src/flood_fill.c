@@ -6,7 +6,7 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 07:54:02 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/11 20:31:25 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:33:27 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ bool	reachable_items(t_img *img)
 	int	x;
 	int	y;
 	int	j;
+	int	i;
 
 	clone(img);
 	x = img->player_x;
@@ -44,8 +45,8 @@ bool	reachable_items(t_img *img)
 		else
 			cant_reach(img);
 	}
-	int i = 0;
-	while(img->f_map[i])
+	i = 0;
+	while (img->f_map[i])
 	{
 		free(img->f_map[i]);
 		i++;
@@ -54,7 +55,7 @@ bool	reachable_items(t_img *img)
 	return (true);
 }
 
-void	cant_reach (t_img *img)
+void	cant_reach(t_img *img)
 {
 	ft_freetab(img->f_map);
 	free_img_map(img);

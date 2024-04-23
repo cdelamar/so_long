@@ -6,7 +6,7 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 22:53:56 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/11 22:58:40 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:28:34 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int	ft_putnbr(int n)
 	count += ft_putnbr(nb % 10);
 	return (count);
 }
+
 int	ft_unsigned_nbr(unsigned int n)
 {
 	int		count;
@@ -108,4 +109,3 @@ int	ft_unsigned_nbr(unsigned int n)
 	count += ft_putnbr(n % 10);
 	return (count);
 }
-

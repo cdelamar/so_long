@@ -6,7 +6,7 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 07:57:30 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/11 22:32:37 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:30:39 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@ void	ft_freetab(char **tab)
 	int	i;
 
 	i = 0;
+	if (!tab)
+		return ;
 	while (tab[i])
 	{
 		free(tab[i]);
-		tab[i] = NULL;
 		i++;
 	}
 	free(tab);
+	tab = NULL;
 }
 
 void	free_img_map(t_img *img)
@@ -33,7 +35,7 @@ void	free_img_map(t_img *img)
 	i = 0;
 	while (i < ((img->y) - 1))
 	{
-		if(img->map[i])
+		if (img->map[i])
 			free(img->map[i]);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 07:39:35 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/11 07:41:55 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:04:32 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ void	error_message(char *str)
 	exit(0);
 }
 
-bool	valid_args(int argc, char **argv, t_img *img)
+bool	valid_args(int argc, char **argv)
 {
 	if (argc != 2)
 		error_message(INVALID_ARGC);
-	if (img->fd < 0)
-		error_message(FILE_NOT_FOUND);
 	if (rev_strncmp(argv[1], ".ber", 4) != 0)
 		error_message(FILE_NOT_FOUND);
 	return (true);
