@@ -12,17 +12,29 @@
 
 #include "so_long.h"
 
+/*
+check if replace
+(ft_strchr("0EC"~
+to
+(ft_strchr("0C"~
+
+check if replace
+if (!ft_strchr(img->f_map[j], 'C') && !ft_strchr(img->f_map[j], 'E'))
+to
+if (!ft_strchr(img->f_map[j], 'C'))
+*/
+
 void	flood_fill(t_img *img, int y, int x)
 {
-	if (ft_strchr("0EC", img->f_map[y][x]))
+	if (ft_strchr("0C", img->f_map[y][x]))
 		img->f_map[y][x] *= -1;
-	if (ft_strchr("0EC", img->f_map[y + 1][x]))
+	if (ft_strchr("0C", img->f_map[y + 1][x]))
 		flood_fill(img, y + 1, x);
-	if (ft_strchr("0EC", img->f_map[y - 1][x]))
+	if (ft_strchr("0C", img->f_map[y - 1][x]))
 		flood_fill(img, y - 1, x);
-	if (ft_strchr("0EC", img->f_map[y][x + 1]))
+	if (ft_strchr("0C", img->f_map[y][x + 1]))
 		flood_fill(img, y, x + 1);
-	if (ft_strchr("0EC", img->f_map[y][x - 1]))
+	if (ft_strchr("0C", img->f_map[y][x - 1]))
 		flood_fill(img, y, x - 1);
 }
 
@@ -40,7 +52,7 @@ bool	reachable_items(t_img *img)
 	flood_fill(img, y, x);
 	while (j < img->y - 2)
 	{
-		if (!ft_strchr(img->f_map[j], 'C') && !ft_strchr(img->f_map[j], 'E'))
+		if (!ft_strchr(img->f_map[j], 'C'))
 			j++;
 		else
 			cant_reach(img);
