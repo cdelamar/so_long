@@ -6,13 +6,13 @@
 #    By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 15:13:39 by cdelamar          #+#    #+#              #
-#    Updated: 2023/10/20 03:32:09 by cdelamar         ###   ########.fr        #
+#    Updated: 2024/05/13 17:04:38 by cdelamar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f

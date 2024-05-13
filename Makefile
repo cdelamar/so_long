@@ -6,7 +6,7 @@
 #    By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 21:54:20 by cdelamar          #+#    #+#              #
-#    Updated: 2024/04/11 23:02:12 by cdelamar         ###   ########.fr        #
+#    Updated: 2024/05/13 17:12:30 by cdelamar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = so_long
 LIBFT = lib/libft.a
 LIBMLXLINUX = lib/libmlx_Linux.a
 
-GCC = gcc
+CC = cc
 
 CFLAGS =	-g -Wall -Wextra -Werror \
 			-Iinclude

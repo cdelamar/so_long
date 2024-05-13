@@ -6,7 +6,7 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 06:46:37 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/23 00:02:53 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:59:20 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 	img.y = 1;
 	img.map = NULL;
 	img.f_map = NULL;
-	if (valid_args(argc, argv) == true)
+	if (valid_args(argc, argv))
 	{
 		img.fd = open(argv[1], O_RDONLY);
 		set_map(&img);
@@ -76,7 +76,7 @@ int	main(int argc, char **argv)
 		img.fd2 = open(argv[1], O_RDONLY);
 		init_map(&img);
 		close(img.fd2);
-		if (valid_map(&img) == true)
+		if (valid_map(&img))
 		{
 			img.step = 0;
 			img.mlx = mlx_init();

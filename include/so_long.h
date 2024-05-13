@@ -6,7 +6,7 @@
 /*   By: cdelamar <cdelamar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:51:42 by cdelamar          #+#    #+#             */
-/*   Updated: 2024/04/23 18:10:43 by cdelamar         ###   ########.fr       */
+/*   Updated: 2024/05/13 17:19:23 by cdelamar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ bool		ft_check_format(char **map);
 void		adjust_last_character(t_img *img);
 bool		is_rectangle(t_img *img);
 bool		valid_map(t_img *img);
-void		flood_fill(t_img *img, int y, int x);
+// void		flood_fill(t_img *img, int y, int x);
 bool		reachable_items(t_img *img);
 void		clone(t_img *img);
 int			player_controls(int keysym, t_img *img);
